@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        table,
+        th,
+        td {
+            border: 3px solid rgb(95, 221, 243);
+            /* border-color: #212e2e; */
+            color: #dcebeb;
+            /* background-color: #65b7e7; */
+        }
+
+        tr {
+            height: 50px;
+        }
+
+        table {
+            background-image: url('download.png');
+        }
+
+        #main {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            display: flex;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- html ORDERED LIST tags -->
+    <center>
+        <H1> HTML ORDERED LIST</H1>
+    </center>
+    <ol>
+        <li>Coffee</li>
+        <li>Tea
+            <ol>
+                <li>Black tea</li>
+                <li>Green tea</li>
+            </ol>
+        </li>
+        <li>Milk</li>
+    </ol>
+
+    <!-- html  UNORDERED LIST tags -->
+    <center>
+        <h1> HTML UNORDERED LIST</h1>
+    </center>
+    <ul style="list-style-type:square" ;>
+        <li>Coffee</li>
+        <li>Tea
+            <ul style="list-style-type:disc">
+                <li>Black tea</li>
+                <li>Green tea</li>
+            </ul>
+        </li>
+        <li>Milk</li>
+    </ul>
+
+    <!-- html Definition Lists tags -->
+    <center>
+        <h1> HTML DEFINITION LIST</h1>
+    </center>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>Black hot drink</dd>
+        <dt>Milk</dt>
+        <dd>White cold drink</dd>
+    </dl>
+
+    <!-- HTML TABLE -->
+    <center>
+        <h1> HTML TABLE WITH BACKGROUND IMAGE</h1>
+    </center>
+    <table width="70%">
+        <tr>
+            <th colspan="2">EMPLOYEE DETAILS</th>
+
+        </tr>
+
+        <tr>
+            <td>NAME</td>
+            <td>VISHAL SARVAIYA</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">COLLEGE</td>
+            <td>LJ POLYTECHNIC</td>
+
+        </tr>
+
+        <tr>
+            <td>LDRP-ITR</td>
+        </tr>
+
+        <tr>
+            <td>COMPANY</td>
+            <td>SQUAD TECHNOLOGIES</td>
+        </tr>
+        <caption style="color: black;">EMPLOYEE DETAILS</caption>
+    </table>
+
+    <div id="main">
+        <div style="background-color:coral;">VISHAL SARVAIYA</div>
+        <div style="background-color:rgb(245, 243, 243);">VISHAL SARVAIYA</div>
+        <div style="background-color:rgb(106, 243, 106);">VISHAL SARVAIYA</div>
+    </div>
+
+</body>
+
+</html>

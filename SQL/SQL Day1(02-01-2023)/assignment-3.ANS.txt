@@ -1,0 +1,102 @@
+*******************************************************************************************************
+
+insert into trainee.VishalStudent values(1,1,'vishal'),(2,2,'manish'),(3,3,'avinash');
+
+*******************************************************************************************************
+
+insert into trainee.VishalStudentdetail Values(1,1,12,'male'),(2,2,12,'male'),(3,3,12,'male');
+
+*******************************************************************************************************
+
+CREATE TABLE  `trainee`.`VishalStudentpresent` (
+  `recid` int(10) unsigned NOT NULL primary key,
+  `studentid` int(10) unsigned NOT NULL,
+  `month` int(2) unsigned NOT NULL,
+  `present` int(3) NOT NULL);
+
+*******************************************************************************************************
+
+insert into  `trainee`.`VishalStudentpresent` values(1,1,3,31),(2,2,3,31),(3,3,3,31);
+
+*******************************************************************************************************
+
+CREATE TABLE  `trainee`.`VishalStudenthours` (
+  `recid` int(10) unsigned NOT NULL primary key,
+  `studentid` int(10) unsigned NOT NULL,
+  `datex` date  NOT NULL,
+  `hours` int(2) NOT NULL);
+
+*******************************************************************************************************
+
+insert into  `trainee`.`VishalStudenthours` values(1,1,'2023-01-01,9),(2,2,'2023-01-01,9),(3,3,'2023-01-01,9);
+
+*******************************************************************************************************
+
+CREATE TABLE  `trainee`.`Vishalproduct` (
+  `recid` int(10) unsigned NOT NULL primary key,
+   name char(30) not null
+ );
+
+*******************************************************************************************************
+
+insert into  `trainee`.`Vishalproduct` values(1,'Tshirt'),(2,'jeans'),(3,'jacket');
+
+*******************************************************************************************************
+
+CREATE TABLE  `trainee`.`Vishalproductprice` (
+  `recid` int(10) unsigned NOT NULL primary key,
+productid int(3) unsigned NOT NULL,
+code int(3) unsigned NOT NULL ,
+effdt date not null,
+price int(4) unsigned NOT NULL 
+ );
+
+*******************************************************************************************************
+
+insert into  `trainee`.`Vishalproductprice` values(1,1,001,'2023-01-02',999),(2,2,002,'2023-01-02',1999),(3,3,003,'2023-01-02',2999);
+
+*******************************************************************************************************
+
+update trainee.VishalStudent
+set name='avinas'
+where recid=3;
+
+*******************************************************************************************************
+
+alter table trainee.VishalStudent add middlename char(15) not null;
+
+update trainee.VishalStudent set middlename="A";
+
+*******************************************************************************************************
+
+update trainee.VishalProductprice 
+set price = price + 25;
+
+*******************************************************************************************************
+
+alter table trainee.Vishalproduct add productid int(3) unsigned not null;
+
+update trainee.Vishalproduct set productid = 1 where recid=1;
+update trainee.Vishalproduct set productid = 2 where recid=2;
+update trainee.Vishalproduct set productid = 3 where recid=3;
+
+update trainee.Vishalproduct set name =concat(name,'a.')
+where productid=(select productid from trainee.Vishalproductprice where code=1);
+
+*******************************************************************************************************
+
+update trainee.VishalStudentpresent set present = present + 2 where studentid IN
+(select studentid from trainee.VishalStudenthours where hours>=8 group by studentid);
+
+*******************************************************************************************************
+
+delete from trainee.Vishalproduct where productid=1;
+
+*******************************************************************************************************
+
+delete from trainee.Vishaltudent where name like 'A%';
+
+*******************************************************************************************************
+
+delete from trainee.VishalStudentdetail where studentid IN
+(select studentid from trainee.Vishalstudenthours where hours <= 3);

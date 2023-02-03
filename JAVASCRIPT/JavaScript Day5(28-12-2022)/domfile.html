@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main style="display: flex;justify-content: center;text-align: center; flex-direction: column">
+
+        <div style="font-size: 20px; color: rgb(119, 72, 11);"><a onclick="generate()">Add a Contact</a></div>
+
+        <div id="visible">
+            
+
+
+
+        </div>
+
+    </main>
+
+    <script>
+
+
+
+        function generate() {
+
+            var x = document.createElement('input');
+
+            x.type = 'text';
+
+            var btn = document.createElement('button');
+
+            btn.innerText = "X";
+
+
+
+            document.getElementById('visible').appendChild(x);
+         
+            document.getElementById('visible').appendChild(btn);
+       
+            btn.addEventListener("click", fun)
+
+            function fun() {
+
+                x.remove();
+
+                btn.remove();
+
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+
+
+
+</html>
+
+
+<!--     
+    <a onclick="add()">Add a Contact</a>
+    <div>
+        <div></div>
+    </div>
+    <script>
+        function add()
+        {
+            var x = document.createElement('input');
+
+x.type = 'text';
+
+var btn = document.createElement('button');
+
+btn.innerText = "X";
+
+//             var x = document.createElement("INPUT");
+//   x.setAttribute("type", "text");
+//   x.setAttribute("value", "");
+//   document.body.appendChild(x);
+
+//   var y = document.createElement("INPUT");
+//   y.setAttribute("type", "button");
+//   y.setAttribute("value", "cancel");
+//   document.body.appendChild(y);
+  
+        }
+    </script>
+</body>
+</html> -->
+
+

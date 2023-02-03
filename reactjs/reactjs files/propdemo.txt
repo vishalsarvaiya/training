@@ -1,0 +1,38 @@
+								app.jsx
+import './App.css'
+import propdemo from './components/propdemo'
+
+function App() {
+  return (
+    <propdemo sname='vishal' lname='sarvaiya' />
+  )
+}
+
+export default App
+
+
+								propdemo.jsx
+import React from 'react'
+import PropTypes from 'prop-types'
+
+const propdemo = (props) => {
+  return (<>
+            <h1>{props.sname}</h1>
+            <h1>{props.lname}</h1>
+        </>
+         )
+}
+
+propdemo.protTypes = {
+  sname: ProtTypes.string,
+  lname: PropTypes.string
+}
+
+propdemo.defaultProps = {
+  sname: 'enter your name',
+  lname: 'enter your last name'
+};
+
+export default propdemo
+
+

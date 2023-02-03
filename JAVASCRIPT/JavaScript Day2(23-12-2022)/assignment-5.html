@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        #text
+        {
+            align-items: center;
+            font-size: 30px;
+            position: absolute;
+            margin-top: 100px;
+            margin-left: -202px;
+        }
+
+        #demo
+        {
+            align-items: center;
+            font-size: 30px;
+            position: absolute;
+            margin-top: 147px;
+            margin-left: -202px;
+        }
+
+        .lbl
+        {
+           
+            margin: 20px;
+            margin-left: 500px;
+            font-size: 30px;
+        }
+        .rdobtn
+        {
+            align-items: center;
+            display: flex;
+            margin-left: 400px;
+            margin-top: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <label class="lbl">Please select your technology :</label><br>
+    <div class="rdobtn">
+
+    <input type="radio" id="php" name="tech" value="PHP" onchange="displayRadioValue()">
+    <label for="php"> PHP</label>
+
+    <input type="radio" id="ASP.NET" name="tech" value="ASP.NET">
+    <label for="ASP.NET"> ASP.NET</label>
+
+    <input type="radio" id="ASP" name="tech" value="ASP">
+    <label for="ASP"> ASP</label>
+
+    <input type="radio" id="JSP" name="tech" value="JSP">
+    <label for="JSP"> JSP </label>
+
+    <input type="radio" id="PERL" name="tech" value="PERL">
+    <label for="PERL"> PERL</label>
+
+    <input type="radio" id="Cold Fusion" name="tech" value="Cold Fusion">
+    <label for="Cold Fusion"> Cold Fusion</label>
+
+    <input type="radio" id="Other" name="tech" value="Other">
+    <label for="Other" > Other</label>
+    </div>
+
+    
+    <button type="button" style="margin-left:45%; margin-top: 200px; font-size: 30px;"  onclick="displayRadioValue()">
+        Submit
+    </button>
+
+    <span id="text"></span>
+    <span id = "demo"></span>
+
+
+    <script>
+        function displayRadioValue() {
+            let ele = document.getElementsByName('tech');
+           
+            for (i = 0; i < ele.length; i++) {
+                if (ele[i].checked)
+                {
+                    if(ele[i].value == "Other")
+                    {
+                    document.getElementById("text").innerHTML  = "You have Not selected Any Technology";
+                    document.getElementById("demo").innerHTML  = "Please Choose Any Valid Technology ";
+                    }
+                    else{
+                    document.getElementById("text").innerHTML  = "You have selected : " + ele[i].value;
+                    document.getElementById("demo").innerHTML  = "Your Choice " + ele[i].value + " is good"
+                    }
+                }
+                
+            
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

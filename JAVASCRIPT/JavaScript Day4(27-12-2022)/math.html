@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+
+
+
+<body>
+
+    <main style="display: flex; justify-content: center;">
+
+
+
+        <div>
+
+
+
+            <table>
+
+                <tr>
+
+                    <th colspan="2">Math Calculate</th>
+
+                </tr>
+
+                <tr>
+
+                    <th><label for="">Please enter first number :</label></th>
+
+                    <td><input type="text" name="fst" id="fst"></td>
+
+                </tr>
+
+                <tr>
+
+                    <th><label for="">Please enter second number : </label></th>
+
+                    <td><input type="text" name="sec" id="sec"></td>
+
+                </tr>
+
+                <tr>
+
+                    <th><label for="">Please select operation you want to perform : </label></th>
+
+                    <td>
+
+                        <input type="radio" name="rd" id="rd1" value="0">
+
+                        <label for="rd1">Addition</label><br>
+
+                        <input type="radio" name="rd" id="rd2" value="1">
+
+                        <label for="rd2">Subtraction</label><br>
+
+                        <input type="radio" name="rd" id="rd3" value="2">
+
+                        <label for="rd3">Multiplication</label><br>
+
+                        <input type="radio" name="rd" id="rd4" value="3">
+
+                        <label for="rd4">Division</label><br>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <th colspan="2"><input type="button" value="Calculate" onclick="cal()">&nbsp;<input type="reset"
+
+                            value="reset" onclick="reset()"></th>
+
+
+
+                </tr>
+
+                <tr>
+
+                    <td colspan="2" style="text-align: center;font-weight: bold;">
+
+                        <p id="view"></p>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <script>
+
+
+
+                function reset() {
+
+                    document.getElementById('fst').value = "";
+
+                    document.getElementById('sec').value = "";
+
+                    let x = document.getElementsByName('rd');
+
+                    for (let i = 0; i < x.length; i++) {
+
+
+
+                        x[i].checked = false;
+
+
+
+                    }
+
+                }
+
+
+
+                function cal() {
+
+                    let fst = document.getElementById('fst').value;
+
+                    let sec = document.getElementById('sec').value;
+
+                    var x = document.getElementsByName('rd');
+
+                    console.log(x);
+
+                    console.log(fst);
+
+
+
+                    if (fst != "" && sec != "") {
+
+
+
+                        if (!isNaN(fst) && !isNaN(sec)) {
+
+
+
+                            for (let i = 0; i < x.length; i++) {
+
+                                if (x[i].checked) {
+
+
+
+
+                                    if (x[i].value == 0) {
+
+                                        document.getElementById('view').innerHTML = "Result is :  " + (parseInt(fst) + parseInt(sec));
+
+                                        break;
+
+                                    }
+
+
+
+                                    if (x[i].value == 1) {
+
+                                        document.getElementById('view').innerHTML = "Result is :   " + (parseInt(fst) - parseInt(sec));
+
+                                        break;
+
+                                    }
+
+
+
+                                    if (x[i].value == 2) {
+
+                                        document.getElementById('view').innerHTML = "Result is :   " + (parseInt(fst) * parseInt(sec));
+
+                                        break;
+
+                                    }
+
+
+
+                                    if (x[i].value == 3) {
+
+                                        document.getElementById('view').innerHTML = "Result is :   " + (parseInt(fst) / parseInt(sec));
+
+                                        break;
+
+                                    }
+
+
+
+                                }
+
+                                else {
+
+                                    document.getElementById("view").innerHTML = "Please select the operation you want to perform";
+
+                                }
+
+                            }
+
+
+
+
+                        }
+
+
+
+                        else {
+
+                            document.getElementById("view").innerHTML = "Please enter only numeric value for first number or Please enter only numeric value for second number";
+
+                        }
+
+                    }
+
+
+
+
+                    else {
+
+                        document.getElementById("view").innerHTML = "Please enter first number or Please enter second number";
+
+                    }
+
+
+
+                }
+
+
+
+            </script>
+
+        </div>
+
+    </main>
+
+</body>
+
+
+
+</html>

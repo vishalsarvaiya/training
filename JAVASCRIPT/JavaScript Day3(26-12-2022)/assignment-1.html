@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+
+       
+        function validate() {
+            let txt = document.getElementById("name");
+            if (!txt.value)
+            {
+                document.getElementById("demo").innerHTML = "Please enter any numeric value";
+                txt.focus();
+            } 
+            else if(isNaN(txt.value))
+            {
+                txt.focus();
+                document.getElementById("demo").innerHTML = "Only numeric values are allowed.<br> Please re-enter the value";
+            }
+            else{
+                txt.focus();
+                document.getElementById("demo").innerHTML = "Entered value is a numeric value";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+        <p style= "margin-left: 450px; font-size: 50px;"> Numeric Input Validation</p>
+        <input style="align-items: center; margin-left: 500px; font-size: 50px; width: 25%; height: 70px; " type="text" id="name">
+        <button type="submit" style="align-items: center; margin-top: 20px; margin-left: 615px; color: red; font-size: 30px; " onclick="validate()">submit</button>
+    
+    
+         <p style="align-items: center; margin-left: 500px; margin-right: 300px; color: red; font-size: 30px; " id="demo"></p>
+
+   
+</body>
+
+</html>

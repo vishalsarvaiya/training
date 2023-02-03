@@ -1,0 +1,48 @@
+								useeffectdemo.jsx
+import React, { useEffect, useState } from 'react'
+
+const UseeffectDemo = () => {
+
+    const[count,setcount] = useState(0);
+
+    useEffect( () =>{
+        document.title = 'chats('+count+')'
+    });
+
+    console.log('outside')
+  return (
+    <div>
+        <h1>{count}</h1>
+        <button onClick={
+            ()=>setcount(count+1)
+         }>click</button>
+    </div>
+  )
+}
+
+export default UseeffectDemo
+
+								app.jsx
+import './App.css'
+//import Stated from './components/statedemo';
+//import propdemo from './components/propdemo'
+//import Con_rend from './components/conditional_rendering';
+//import Listkey from './components/list_keys';
+//import Form from './components/formdemo';
+import UseeffectDemo from './components/useeffectDemo';
+
+function App() {
+  return (
+          //<propdemo sname='vishal' lname='sarvaiya' />
+          //<Stated />
+        // <Con_rend/>
+        //<Listkey/>
+          //<Form/>
+          <UseeffectDemo/>
+
+
+  
+  )
+}
+
+export default App;

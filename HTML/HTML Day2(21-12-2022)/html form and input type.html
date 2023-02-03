@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <style>
+    .media
+    {
+        float: right;
+    }
+
+    .data
+    {
+        float: left;
+
+    }
+    .main
+    {
+        display: flex;
+        justify-content: space-between;
+    }
+   </style>
+
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>HTML TAGS</legend>
+            <div class="main">
+            <div class="data">
+
+                <table>
+                <tr>
+                    <td>name</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+
+               
+
+                <tr>
+                    <td>age</td>
+                    <td> <input type="number" name="age" max="110"> </td>
+                </tr>
+
+
+                <tr>
+                    <td>date</td>
+                    <td> <input type="date"> </td>
+                </tr>
+                <tr>
+                    <td>datetime</td>
+                    <td> <input type="datetime"> </td>
+                </tr>
+                <tr>
+                    <td>datetime-local</td>
+                    <td> <input type="datetime-local"> </td>
+                </tr>
+
+                <tr>
+                    <td>range</td>
+                    <td>0<input type="range" id="points" name="points" min="0" max="100">100</td>
+                </tr>
+
+                <tr>
+                    <td>time</td>
+                    <td> <input type="time"> </td>
+                </tr>
+
+                <tr>
+                    <td>week</td>
+                    <td> <input type="week"> </td>
+                </tr>
+
+                <tr>
+                    <td>month</td>
+                    <td> <input type="month"> </td>
+                </tr>
+                <tr>
+                    <td>telephone</td>
+                    <td> <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"> </td>
+                </tr>
+                <tr>
+                    <td>email</td>
+                    <td> <input type="email"> </td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td> <input type="url"> </td>
+                </tr>
+
+                <tr>
+                    <td>password</td>
+                    <td><input type="password"> </td>
+                </tr>
+
+               
+
+
+                <tr>
+                    <td>hidden</td>
+                    <td><input type="hidden" value="vishal sarvaiya"> </td>
+                </tr>
+
+                <tr>
+                    <td>search</td>
+                    <td><input type="search"> </td>
+                </tr>
+
+
+                <tr>
+                    <td>datalist</td>
+                    <td> <input list="browsers" name="browser" id="browser">
+                        <datalist id="browsers">
+                            <option value="Edge">
+                            <option value="Firefox">
+                            <option value="Chrome" >
+                            <option value="Opera">
+                            <option value="Safari">
+                        </datalist>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>option</td>
+                    <td> <select id="cars">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>optgroup</td>
+                    <td> <select name="cars" id="cars">
+                            <optgroup label="Swedish Cars">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                            </optgroup>
+                            <optgroup label="German Cars">
+                                <option value="mercedes">Mercedes</option>
+                                <option value="audi">Audi</option>
+                            </optgroup>
+                    </td>
+                </tr>
+
+
+                    <tr>
+                        <td>
+                            <input type="submit" value="submit">
+                            <input type="reset" value="reset">
+                        </td>
+                    </tr>
+        </fieldset>
+        <keygen name="secure"></keygen>
+        </table>
+
+        <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+            <input type="range" id="a" value="50">
+            +<input type="number" id="b" value="25">
+            =<output name="x" for="a b"></output>
+        </form>
+    </form>
+   
+</div>
+    
+<div class="media">
+    <table>
+    <tr>
+        <td>image</td>
+        <td><img src="C:\Users\T2-90\Downloads\HTML Assignments\Assignment - 3.jpg" height="200px"
+                width="300px" </td>
+    </tr>
+    
+    <tr>
+        <td>AUDIO</td>
+        <td>
+            <audio controls>
+                <source src="C:\Users\T2-90\Downloads\horse.ogv" type="audio/ogg">
+                <source src="C:\Users\T2-90\Downloads\horse.ogv" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+        <td>
+    </tr>
+    
+    
+    <tr>
+        <td>video</td>
+        <td> <video src="C:\Users\T2-90\Downloads\movie.mp4" height="200px" width="200px" controls> </td>
+    </tr>
+    
+    <tr>
+        <td>gender</td>
+        <td><input type="radio" name="gender" value="male"> male <input type="radio" name="gender" value="female"> female  </td>
+        
+    </tr>
+    
+    <tr>
+        <td>languages</td>
+        <td> <input type="checkbox" name="lang" value="english"> english <input type="checkbox" name="lang" value="english"> hindi <input type="checkbox" name="lang" value="english"> gujarati</td>
+    </tr>
+    
+    
+    <tr>
+        <td>file</td>
+        <td><input type="file"> </td>
+    </tr>
+    </table>
+    </div>
+</div>
+</body>
+
+</html>
+
+

@@ -1,0 +1,58 @@
+select * from vishalstudent
+
+create view vstudent 
+as 
+select * from vishalstudent;
+
+select * from vstudent;
+
+drop view vstudent;
+
+alter view vstudent
+drop sname;
+
+create view vstudent2 
+as 
+select rollno,fname,surname from vishalstudent;
+
+select * from vstudent2
+
+select * from vishalresult
+
+create view joinview
+as
+select v.rollno,v.fname,v.surname,vr.marks,vr.result
+from 
+vishalstudent v inner join vishalresult vr
+on
+v.rollno = vr.rollno;
+
+select * from joinview;
+
+alter table vishalstudent add country varchar(30)
+
+exec sp_refreshview vstudent;
+
+alter table vishalstudent drop column country
+exec sp_refreshview vstudent;
+
+create view vWithSchemaBinding
+with schemabinding
+as 
+select recid,rollno,fname,sname,surname,admitdate,birthdate,standards,sex from dbo.vishalstudent;
+
+exec sp_refreshview vWithSchemaBinding
+select * from vWithSchemaBinding
+
+alter table vishalstudent drop column rollno --error because withschemabinding
+alter table vishalstudent alter column rollno varchar(50) --error because withschemabinding	
+
+create view vmalecheck
+as
+select * from vishalstudent
+where sex = 'male'
+with check option;
+
+select * from vmalecheck
+
+insert into vmalecheck values(7,7,'aaa','bbb','ccc','2023-01-01','2001-02-03',11,'female',null);  --error because with check option

@@ -1,0 +1,30 @@
+[
+    {
+        "id":"1",
+        "name":"vishal",
+        "details":"ahmedabad",
+        "projectid" :"1"
+    },
+
+    {
+        "id":"2",
+        "name":"manish",
+        "details":"surat",
+        "projectid" :"2"
+    },
+
+    {
+        "id":"3",
+        "name":"mahipal",
+        "details":"anand",
+        "projectid" :"2"
+    },
+
+    
+    {
+        "id":"4",
+        "name":"avinash",
+        "details":"bhavnagar",
+        "projectid" :"1"
+    }
+]

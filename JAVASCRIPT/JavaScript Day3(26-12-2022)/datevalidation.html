@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<main>
+<div style="text-align: center;">
+<h1>Enter date in this format : MM-DD-YYYY</h1><br><br>
+<input type="text" name="date" id="date">
+<br><br>
+<input type="button" value="Check" onclick="cheackdate()">
+<br>
+<br>
+<span id="view" style="font-size: 20px;"></span>
+
+ 
+
+        </div>
+</main>
+<script>
+        function cheackdate() {
+            var inputdate = document.getElementById('date').value;
+            var view = document.getElementById('view');
+            var mm = document.getElementById('date').value.slice(0, 2);
+            var dd = document.getElementById('date').value.slice(3, 5);
+            var yy = document.getElementById('date').value.slice(6, 10);
+            if (inputdate != "") {
+                if (inputdate.length == 10) {
+
+ 
+
+                    if (!isNaN(dd) && !isNaN(mm) && !isNaN(yy)) {
+                        //leap year
+                        if (yy % 4 == 0) {
+                            console.log("leep year");
+                            //leap month
+                            if (mm <= 12) {
+                                if (mm == 02) {
+                                    if (dd <= 29) {
+                                        view.innerHTML = " You have entered valid date. Its " + inputdate + ".Thank you.";
+                                        view.style.color = "";
+                                    }
+                                    else {
+                                        view.innerHTML = "Invalid day. Day should be within the range 1 to 31";
+                                    }
+                                }
+                                if (mm == 01 || mm == 03 || mm == 05 || mm == 07 || mm == 08 || mm == 10 || mm == 12) {
+
+ 
+
+                                    if (dd <= 31) {
+                                        view.innerHTML = " You have entered valid date. Its " + inputdate + ".Thank you.";
+                                    }
+                                    else {
+                                        view.innerHTML = "Invalid day. Day should be within the range 1 to 31";
+                                    }
+
+ 
+
+                                }
+                                if (mm == 04 || mm == 06 || mm == 09 || mm == 11) {
+                                    if (dd <= 30) {
+                                        view.innerHTML = " You have entered valid date. Its " + inputdate + ".Thank you.";
+                                    }
+                                    else {
+                                        view.innerHTML = "Invalid day. Day should be within the range 1 to 31";
+                                    }
+                                }
+
+ 
+
+                            }
+                            else {
+                                view.innerHTML = "Invalid month. Month should be within the range 1 to 12";
+                            }
+
+ 
+
+                        }
+                        else {
+
+ 
+
+
+if (mm <= 12) {
+    if (mm == 02) {
+        if (dd <= 28) {
+            view.innerHTML = " You have entered valid date. Its " + inputdate + ".Thank you.";
+        }
+        else {
+            view.innerHTML = "Invalid day. Day should be within the range 1 to 31";
+        }
+    }
+    if (mm == 01 || mm == 03 || mm == 05 || mm == 07 || mm == 08 || mm == 10 || mm == 12) {
+
+
+
+        if (dd <= 31) {
+            view.innerHTML = " You have entered valid date. Its " + inputdate + ".Thank you.";
+        }
+        else {
+            view.innerHTML = "Invalid day. Day should be within the range 1 to 31";
+        }
+
+
+
+    }
+    if (mm == 04 || mm == 06 || mm == 09 || mm == 11) {
+        if (dd <= 30) {
+            view.innerHTML = " You have entered valid date. Its " + inputdate + ".Thank you.";
+        }
+        else {
+            view.innerHTML = "Invalid day. Day should be within the range 1 to 31";
+        }
+    }
+
+
+
+}
+else {
+    view.innerHTML = "Invalid month. Month should be within the range 1 to 12";
+}
+
+
+
+}
+
+
+
+}
+else {
+console.log("please enter only number");
+}
+}
+else {
+view.innerHTML = "Invalid date. Please enter date in MM-DD-YYYY format";
+}
+}
+else {
+view.innerHTML = "Please enter date in MM-DD-YYYY format";
+}
+
+
+
+
+
+
+
+}
+</script>
+</body>
+
+
+
+</html>

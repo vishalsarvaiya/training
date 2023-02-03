@@ -1,0 +1,10 @@
+select sub.name as subject_name,  s.lname as s_last_name , t.lname as t_last_name
+from vishalsubject as sub inner join vishallearning as l
+on sub.id = l.subject_id
+inner join
+vishalstudent1 as s
+on s.id = l.student_id
+inner join
+vishalteacher as t
+on t.id = l.teacher_id;
+

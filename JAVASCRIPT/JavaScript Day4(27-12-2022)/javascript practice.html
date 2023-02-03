@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+                                    //callback
+//          hello=() => document.write("hello");
+//         function hii()
+//         {
+//             document.write("hii");
+//         }
+
+//         add=(a,b,call) =>
+//         {
+//             document.write(a+b);
+//             call();
+//         }
+       
+        
+// helllo=() => {document.write( "another");}
+
+//         add(5,10,hello);
+
+
+
+
+document.write("<h1>Callbacks Promise async await</h1>");
+
+
+
+/*
+
+    // callback function
+
+        A callback is a function passed as an argument to another function
+
+        This technique allows a function to call another function
+
+        A callback function can run after another function has finished
+
+*/
+
+// normal function
+
+
+
+document.write("<h1>Callbacks Promise async await</h1>");
+
+
+
+/*
+
+    // callback function
+
+        A callback is a function passed as an argument to another function
+
+        This technique allows a function to call another function
+
+        A callback function can run after another function has finished
+
+*/
+
+// ye he aam zindgi
+
+const sum = (num1, num2) => {
+
+  return num1 + num2;
+
+};
+
+function display(sum) {
+
+  document.write(sum + "<br>");
+
+}
+
+const ans = sum(10, 20);
+
+display(ans);
+
+// ye he callback vali zindgi
+
+const sumCallback = (num1, num2, mycallback) => {
+
+  let ans = num1 + num2;
+
+
+
+  mycallback(`${num1} + ${num2} = ${ans}`);
+
+};
+
+sumCallback(90, 10, display);
+
+
+
+// Promise :- "I Promise a Result!"
+
+let myPromise = function (num1, num2) {
+
+  return new Promise(function (resolve, reject) {
+
+    if (num1 + num2 > 50) {
+
+      resolve("promise is resolved" + " :- " + (num1 + num2));
+
+    } else {
+
+      reject("promise is rejected");
+
+    }
+
+  });
+
+};
+
+myPromise(50, 20)
+
+  .then((res) => {
+
+    console.log(res);
+
+  })
+
+  .catch((err) => {
+
+    console.log(err);
+
+  });
+
+ 
+
+
+
+// Async Await :- "async and await make promises easier to write"
+
+const asyncAwait = async (num1, num2) => {
+
+  try {
+
+    const ans = await myPromise(num1, num2);
+
+    const ans1 = await myPromise(num1, num2);
+
+    const ans2 = await myPromise(num1, num2);
+
+    console.log(ans);
+
+    throw "error from vishal to it`s wife vishali.";
+
+  } catch (err) {
+
+    console.log(err);
+
+  }
+
+};
+
+asyncAwait(50, 20);
+
+
+
+var num1 = 22;
+
+
+
+console.log("PROMISE for Vishal")
+
+new Promise(function (resolve, reject) {
+
+  if (num1 > 20) {
+
+    resolve("promise resolved");
+
+  } else {
+
+    reject("Promise reject");
+
+  }
+
+
+})
+
+  .then(function (rrr) {
+
+    console.log(rrr);
+
+  })
+
+  .catch(function (err) {
+
+    console.log(err);
+
+  });

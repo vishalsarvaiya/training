@@ -1,0 +1,172 @@
+<html>
+<body>
+
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+
+
+
+<script>
+
+                                                     //class and method
+//     class Car {
+//  age(a) {
+//     let date = new Date();
+//     return date.getFullYear() - a;
+
+//   }
+// }
+
+// let c1 = new Car();
+
+// let b= c1.age(2012);
+// document.getElementById("demo").innerHTML =
+// "My car is " + b + " years old.";
+
+
+
+
+
+                                                    //constructor overloading
+//   class demo{
+//     constructor(name)
+//     {
+//         console.log(name);
+//     }
+    
+//  constructor(name,age)
+//     {
+//     //    super(name);
+//         console.log(age+" "+name);
+//     }
+// }
+//  let d=new d2("vishal");
+//  let d1=new d2("vishal", 21);
+
+
+
+
+
+                                                 //constructor overriding
+// class demo{
+//     constructor(name)
+//     {
+//         console.log(name);
+//     }
+// }
+
+// class d2
+// {
+    
+//     constructor(name)
+//     {
+//     //    super(name);
+//         console.log("aa"+name);
+//     }
+// }
+
+//  let d=new d2("vishal");
+
+
+                                        //single inheritance
+// class Car {
+
+//   present(model) {
+//     return 'I have a '+model;
+//   }
+// }
+
+// class Model extends Car {
+ 
+//   show() {
+//     return "hello";
+//   }
+// }
+// let myCar1 = new Model();
+// let c1=myCar1.present("audi");
+// document.getElementById("demo").innerHTML = c1;
+
+
+// let m1 = new Model();
+// let c2=m1.show();
+
+
+// document.getElementById("demo2").innerHTML = c2;
+
+                                            //inheritance by constructor
+
+// class Car {
+// constructor(a,b)
+// {
+//     this.a=a;
+//     this.b=b;
+// }
+// }
+
+// class Model extends Car {
+ 
+//   constructor(a,b,c,d)
+//   {
+//     super(a,b);
+    
+//     // return a+b+c+d;
+//     document.write(a+b+c+d);
+//   }
+// }
+
+
+// let myCar1 = new Model(5,2,5,3);
+
+// let c1=myCar1.present("audi");
+//ocument.getElementById("demo").innerHTML = mycar1;
+
+
+                                    //method overloading
+// class demo{
+//     show()
+//     {
+//         console.log("hello");
+//     }
+//     show(a)
+//     {
+//         console.log("value"+ a);
+//     }
+//     show(a,b)
+//     {
+//         console.log("value"+ a+ b);
+//     }
+
+// }
+// let d=new demo();
+//     d.show(5);
+//     d.show(5,6);
+
+
+
+
+                                            //method overriding
+// class demo{
+   
+   
+//     show(a,b)
+//     {
+//         console.log("valuedemo"+ a+ b);
+//     }
+
+// }
+
+// class show extends demo{
+//     show(a,b)
+//     {
+//         console.log("valueshow"+ a+ b);
+//     }
+// }
+// let d=new show();
+//     d.show(5,6);
+
+</script>
+
+</body>
+</html>

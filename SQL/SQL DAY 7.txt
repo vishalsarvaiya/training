@@ -1,0 +1,170 @@
+SELECT REPLACE('SQL Tutorial', 'SQL', 'html');
+
+**********************************************************************************************************
+
+will display the query of procedure
+SHOW CREATE PROCEDURE spjoinbysalary;
+
+CREATE DEFINER=`trainee`@`192.168.%` PROCEDURE `spjoinbysalary`(post char(50), esalary int)
+begin
+select os.name,os.designation, (os.salary+os.overtimesalary) as 'total', o.city, o.region
+from Vishalofficestaff as os inner join vishaloffice as o
+on os.recid = o.recid
+where os.designation = post and (os.salary+os.overtimesalary)>=esalary;
+end
+
+**********************************************************************************************************
+
+SHOW CREATE TABLE  vishaloffice;
+CREATE TABLE `vishaloffice` (
+  `recid` decimal(3,0) NOT NULL,
+  `city` char(30) NOT NULL,
+  `region` char(30) NOT NULL,
+  `manager` char(20) NOT NULL,
+  `targetsales` varchar(5) NOT NULL,
+  `actualsales` varchar(5) NOT NULL,
+  PRIMARY KEY (`recid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+**********************************************************************************************************
+
+SHOW DATABASES;
+SHOW SCHEMAS;
+
+**********************************************************************************************************
+used to display the status information about the server's storage engines. 
+It is important for checking whether a storage engine is supported, or what the default engine is.
+SHOW ENGINES;
+
+**********************************************************************************************************
+
+SHOW GRANTS;
+GRANT USAGE ON *.* TO 'trainee'@'192.168.%' IDENTIFIED BY PASSWORD <secret>
+GRANT ALL PRIVILEGES ON `trainee`.* TO 'trainee'@'192.168.%'
+GRANT ALL PRIVILEGES ON `traineedb`.* TO 'trainee'@'192.168.%'
+
+**********************************************************************************************************
+
+SHOW KEYS
+FROM vishaloffice;
+**********************************************************************************************************
+
+SHOW OPEN TABLES FROM trainee;
+**********************************************************************************************************
+SHOW PLUGINS;
+**********************************************************************************************************
+SHOW TABLE STATUS;
+**********************************************************************************************************
+SHOW TABLE STATUS from Vishalcustomer;
+**********************************************************************************************************
+SHOW TABLES;
+**********************************************************************************************************
+SHOW TABLES from trainee like 'vishal%';
+**********************************************************************************************************
+UNIQUE
+CREATE TABLE Persons (
+    ID int NOT NULL UNIQUE,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int);
+**********************************************************************************************************
+							DERIVED TABLE
+							*************
+select * from
+(select c.vin, c.make, c.model, c.year, c.mileage from vishalcar c inner join vishalinventory i
+on c.vin = i.vin
+inner join
+vishaldealership d
+on i.dealershipid = d.recid
+where d.name = "Tata moters dealer 1") as derivedtable;
+
+**********************************************************************************************************
+							 LEAD & LAG
+							*************
+SELECT name, salary,
+LEAD(salary,1,1) over ( partition by gender order by salary) as lead,
+LAG(salary,1,1) over ( partition by gender order by salary) as lag
+FROM Vishalofficestaff;
+
+**********************************************************************************************************
+							string function
+							***************
+select ascii('a');
+select char('98');
+select charindex('ab','dsabh');
+select concat('vishal',' sarvaiya');
+select concat_ws('_','vishal','sarvaiya');
+select left('vishal',4);
+select right('vishal',4);
+select len('vishal sarvaiya');
+select lower('vishal sarvaiya');
+select upper('vishal sarvaiya');
+select concat(rtrim('vishal     '),ltrim('        sarvaiya'));
+select patindex('%sh%','vishal');
+select replace('vishal 123','123','sarvaiya');
+select stuff('vishal123',3,4,'code');
+
+**********************************************************************************************************
+						    number format function
+							***************
+SELECT FORMAT(250500.5434,5);
+250,500.54340
+
+**********************************************************************************************************
+							   UNION
+							***************
+select recid,name from Vishalofficestaff
+union
+select recid,city from vishaloffice
+
+**********************************************************************************************************
+							     ENUM
+							***************
+CREATE TABLE Student_grade(
+id INT PRIMARY KEY AUTO_INCREMENT, Grade VARCHAR(250) NOT NULL,
+priority ENUM('Low', 'Medium', 'High') NOT NULL
+);
+**********************************************************************************************************
+							     convert
+							***************
+
+SELECT CONVERT(datetime, '2017-08-25');
+**********************************************************************************************************
+							  date& time
+							***************
+
+DATE - format YYYY-MM-DD
+DATETIME - format: YYYY-MM-DD HH:MI:SS
+TIMESTAMP - format: YYYY-MM-DD HH:MI:SS
+YEAR - format YYYY or YY
+**********************************************************************************************************
+							   Literals
+							***************
+string:-'vishal'
+integer:-10
+decimal:-22.7
+datetime:-'2023-01-10'
+**********************************************************************************************************
+							     INDEX
+							***************
+
+CREATE INDEX idx_name
+ON Vishalofficestaff (name);
+
+alter table Vishalofficestaff
+drop index idx_name;
+**********************************************************************************************************
+							     FUNCTION
+							***************
+
+CREATE FUNCTION adddigit ( @n1 int , @n2 int)
+returns int
+as
+begin
+declare @result int;
+set @result = @n1 + @n2;
+return @result
+end
+
+select dbo.adddigit(15,12);
+

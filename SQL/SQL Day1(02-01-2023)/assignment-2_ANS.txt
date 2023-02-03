@@ -1,0 +1,87 @@
+CREATE TABLE `trainee`.`VishalStudent`
+(`recid` INTEGER UNSIGNED NOT NULL primary key ,`name` CHAR(20) NOT NULL );
+
+**************************************************************************************
+
+CREATE TABLE `trainee`.`VishalStudentdetail` (
+  `recid` INTEGER UNSIGNED NOT NULL,
+  `studentid` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT primary key,
+  `standard` NUMERIC UNSIGNED NOT NULL,
+  `flagsex` BOOLEAN NOT NULL);
+
+***************************************************************************************
+
+CREATE TABLE `trainee`.`VishalStudentpresent` (
+  `recid` INTEGER UNSIGNED NOT NULL,
+  `studentid` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT primary key,
+  `month` NUMERIC(2) UNSIGNED NOT NULL,
+  `present` numeric(30) unsigned NOT NULL);
+
+
+***************************************************************************************
+
+CREATE TABLE `trainee`.`Vishalstudenthours` (
+  `recid` INTEGER UNSIGNED NOT NULL ,
+  `studentid` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+  `date` DATE NOT NULL,
+  `hours` NUMERIC(2) NOT NULL,
+  PRIMARY KEY (`studentid`)
+);
+
+***************************************************************************************
+
+insert into trainee.VishalStudent values(1,'vishal'),
+(2,'manish');
+
+***************************************************************************************
+
+insert into trainee.VishalStudentdetail values(1,11,12,true),
+(2,22,10,true);
+
+***************************************************************************************
+
+insert into trainee.VishalStudentpresent values(1,11,01,30),
+(2,22,01,28);
+
+***************************************************************************************
+	
+insert into trainee.Vishalstudenthours values(1,11,'2008-11-11 13:23:44',9),
+(2,22,'2008-11-11 13:23:44',28);
+
+***************************************************************************************
+
+SELECT trainee.VishalStudent.name,trainee.VishalStudentdetail.standard, trainee.VishalStudentdetail.flagsex "sex"
+FROM trainee.VishalStudent inner join trainee.VishalStudentdetail
+on trainee.VishalStudent.recid = trainee.VishalStudentdetail.recid
+order by name;
+
+***************************************************************************************
+
+SELECT trainee.VishalStudent.name , sum(trainee.Vishalstudenthours.hours) "TotalHours"  
+FROM trainee.VishalStudent inner join trainee.Vishalstudenthours
+on trainee.VishalStudent.recid = trainee.Vishalstudenthours.recid
+group by name
+order by name;
+
+***************************************************************************************
+
+SELECT s1.name, avg(s2.present) "present" 
+FROM trainee.VishalStudent as s1 inner join trainee.VishalStudentpresent as s2
+on s1.recid = s2.recid
+group by name
+order by name;
+
+***************************************************************************************
+
+SELECT min(present) "MinPresent" FROM trainee.VishalStudentpresent;
+
+***************************************************************************************
+
+SELECT max(present) "MaxPresent" FROM trainee.VishalStudentpresent;
+
+
+***************************************************************************************
+
+select Name,Hours,DATE_FORMAT(datex,'%d/%m/%Y') "DD/MM/YY" , DATE_FORMAT(datex,'%m/%d/%Y') "MM/DD/YY" ,
+DATE_FORMAT(datex,'%y/%m/%d/') "YYYY/MM/DD" , DATE_FORMAT(datex,'%m/%d %a') "MM/DD" 
+from trainee.VishalStudent natural join trainee.Vishalstudenthours;

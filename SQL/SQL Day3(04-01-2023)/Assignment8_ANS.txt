@@ -1,0 +1,99 @@
+Q-1	I want to add 3 days to the current date. Write all possible queries to perform this operation. Explain each one of them.
+SELECT ADDDATE(curdate(), INTERVAL 3 DAY);
+
+Q-2	I want to add 3 years to the current date. Write all possible queries to perform this operation. Explain each one of them.
+SELECT DATE_ADD(curdate(),interval 1 year);
+select ADDDATE(curdate(),365);
+
+Q-3	I want to add 3 months to the current date. Write all possible queries to perform this operation. Explain each one of them.
+SELECT DATE_ADD(curdate(),interval 3 month);
+select ADDDATE(curdate(), interval 3 month);
+
+Q-4	I want to deduct 2 days from the current date.  Write all possible queries to perform this operation. Explain each one of them.
+SELECT DATE_ADD(curdate(),interval -2 day);
+select ADDDATE(curdate(),-2);
+
+Q-5	Write a query to add 5 days and 15 hours to date and time "2007-01-26 12:30:45".
+SELECT ADDTIME('2007-01-26 12:30:45', '5 15:0:0');
+
+Q-6	Write all possible queries which will return current date.
+select curdate();
+SELECT CURRENT_DATE();
+select current_date;
+
+
+Q-7	Write all possible queries which will return current time.
+select curtime();
+SELECT CURRENT_TIME();
+select current_time;
+
+Q-8	Input Date is "2007-01-26 12:30:45". Write queries to output following date formats:
+
+	- "January 26, 2007" =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%M %d, %Y') as "FORMATTED DATE";
+
+	- "The 26th of January" =>SELECT DATE_FORMAT('2007-01-26 12:30:45', ' The %D of %M') as "FORMATTED DATE";
+
+	- 2007 =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%Y') as "FORMATTED DATE";
+
+	- 07 =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%y') as "FORMATTED DATE";
+
+	- 26/1/7 
+	- 26/01/07 =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%d/%m/%y') as "FORMATTED DATE";
+
+	- 26/01/2007 =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%d/%m/%Y') as "FORMATTED DATE";
+
+	- 01/26/07 =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%m/%d/%y') as "FORMATTED DATE";
+
+	- 26/01/07 12:30:45 =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%d/%m/%y %h:%i:%s') as "FORMATTED DATE";
+
+	- 26/01/07 12:30:45 PM =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%d/%m/%y %h:%i:%s PM') as "FORMATTED DATE";
+
+
+
+Q-9	Input Date is "2007-01-26 12:30:45". Write queries to output following date formats:
+
+	- Friday =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%W') as "FORMATTED DATE";              
+	- 26 (Explanation: 26th day of the month) =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%d') as "FORMATTED DATE";              
+	- 6 (Explanation: 6th day of the week) =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%w') as "FORMATTED DATE";              
+	- 26 (Explanation: 26th day of the year) =>SELECT DATE_FORMAT('2007-01-26 12:30:45', '%j') as "FORMATTED DATE";              
+
+
+Q-10	Explain UNIX_TIMESTAMP and FROM_UNIXTIME functions with examples.
+UNIX_TIMESTAMP:-
+select UNIX_TIMESTAMP('2022-02-02');
+
+This function in MySQL helps to return a Unix timestamp. We can define a Unix timestamp as the number of seconds 
+that havepassed since ‘1970-01-01 00:00:00’UTC. Even if you pass the current date/time or another specified date/time, 
+the function will return a Unix timestamp based on that.
+
+FROM_UNIXTIME:-
+SELECT FROM_UNIXTIME(912346645, '%W, %D %M %Y') AS Unix;
+This function in MySQL helps to return date /DateTime representation of a Unix timestamp. 
+The format of returning value will be ‘YYYY-MM-DD HH:MM:SS’ or ‘YYYYMMDDHHMMSS’, 
+depending on the context of the function.
+
+
+Q-11	Write the output of the following query and explain it.
+	
+	SELECT PERIOD_ADD(200601, 3); =>200604
+The PERIOD_ADD() function adds a specified number of months to a period.
+
+The PERIOD_ADD() function will return the result formatted as YYYYMM.
+
+
+Q-12	Write the output of the following query and explain it.
+
+	SELECT PERIOD_DIFF(200601, 200609); => -8
+The PERIOD_DIFF() function returns the difference between two periods. The result will be in months.
+
+Note: period1 and period2 should be in the same format.
+
+
+Q-13	Explain the use of "LAST_INSERT_ID()" function in real life applications.
+You can also use LAST_INSERT_ID() to delete the last inserted row:
+
+DELETE FROM product WHERE id = LAST_INSERT_ID();
+If no rows were successfully inserted, LAST_INSERT_ID() returns 0.
+
+The value of LAST_INSERT_ID() will be consistent across all versions if all rows in the INSERT or UPDATE statement were successful.
+

@@ -1,0 +1,37 @@
+							List_key.jsx
+import React from "react";
+
+const Listkey = () => {
+
+    const IPL = ["CSK","MI","RCB","CSK"];
+    const result = IPL.map((IPL,index) => <div key = {index}> {IPL} index {index}</div>)
+
+    return (
+        <div>
+        <h1> {result} </h1>
+        </div>
+    );
+}
+
+export default Listkey
+
+
+							App.jsx
+import './App.css'
+//import Stated from './components/statedemo';
+//import propdemo from './components/propdemo'
+//import Con_rend from './components/conditional_rendering';
+import Listkey from './components/list_keys';
+
+function App() {
+  return (
+    //<propdemo sname='vishal' lname='sarvaiya' />
+    //<Stated />
+   // <Con_rend/>
+    <Listkey/>
+
+  
+  )
+}
+
+export default App;

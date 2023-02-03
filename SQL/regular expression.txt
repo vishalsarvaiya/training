@@ -1,0 +1,80 @@
+*	Zero or more instances of string preceding it
++	One or more instances of strings preceding it
+.	Any single character
+?	Match zero or one instances of the strings preceding it.
+^	caret(^) matches Beginning of string
+$	End of string
+[abc]	Any character listed between the square brackets
+[^abc]	Any character not listed between the square brackets
+[A-Z]	match any upper case letter.
+[a-z]	match any lower case letter
+[0-9]	match any digit from 0 through to 9.
+
+*********************************************************************************************************************
+
+check those students whose surname starts with ‘S’.
+
+SELECT * FROM Employee   
+WHERE Last_name RLIKE '^S' ;
+
+The following example finds the STUDENTS whose surname ends with the letter ‘i’.
+RLIKE
+SELECT * FROM Vishalnewstudent
+WHERE surname RLIKE 'i$' ;
+
+*********************************************************************************************************************
+
+NOT LIKE
+SELECT * FROM Vishalnewstudent
+WHERE surname not LIKE 'p%' ;
+
+*********************************************************************************************************************
+The MySQL statement will find the surname not beginning with ‘p’.
+The ‘^’ have been used to match the beginning of the name.
+
+Not regexp Operator
+SELECT * FROM Vishalnewstudent
+WHERE surname NOT REGEXP '^p';
+
+*********************************************************************************************************************
+Gives all the surnames where second character is 'a'.
+regexp Operator
+SELECT * FROM Vishalnewstudent
+WHERE surname REGEXP '^.a';
+
+*******************************************NOT SUPPORTED*************************************************************
+REGEXP_INSTR() function in MySQL is used for pattern matching. It is a function that returns the
+index value of the substring by matching the given string. 
+This function returns 0 if no match is found. Else, it returns 1
+
+regexp_instr()
+SELECT REGEXP_INSTR('BCA MCA PGDCA BBA MBA BCA', 'BCA') AS start_index;
+
+*********************************************************************************************************************
+The REGEXP_LIKE() function in MySQL is used for pattern matching. It compares whether the given strings 
+match a regular expression or not.
+It returns 1 if the strings match the regular expression and return 0 if no match is found.
+
+regexp_like() 
+SELECT surname
+FROM Vishalnewstudent
+WHERE REGEXP_LIKE(surname, '^S(ha|hek)h$');
+
+*********************************************************************************************************************
+The REGEXP_REPLACE function is used to return source_char with every occurrence of the regular expression pattern 
+replaced with replace_string
+The following example examines surname and puts a space after each non-null character in the string
+regexp_replace
+
+SELECT
+REGEXP_REPLACE(surname, '(.)', '\1 ') "REGEXP_REPLACE"
+FROM Vishalnewstudent;
+
+*********************************************************************************************************************
+The REGEXP_SUBSTR function use used to return the substring that matches a regular expression within a string.
+regexp_substr()
+SELECT  
+REGEXP_SUBSTR('the web development tutorial, from w3resource, w3resouce.com',',[^,]+,') 
+"REGEXPR_SUBSTR"  FROM DUAL;
+
+*********************************************************************************************************************

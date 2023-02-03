@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: rgb(14, 11, 9);
+    color: rgb(251, 251, 252);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px ;
+}
+.header_button {
+    margin: 20px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+
+.search{
+    padding: 10px 86px;
+}
+
+
+.body_item{
+    margin-top: 10px;
+    text-align: center;
+}
+.bodytable {
+    
+    /* min-width: 97vw; */
+    width: 100%;
+    border: 1px solid black;
+    font: optional;
+}
+.bodytable tr td{
+padding: 10px 0px;
+}

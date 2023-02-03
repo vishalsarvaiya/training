@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <main style="text-align: center; ">
+    <div>
+        <div style="margin: 20px;">
+            <select id="country" style="font-size: 20px;" onchange="show()" >
+                <option value="0" id="0">Please Select </option>
+                <option value="1">india</option>
+                <option value="2">united kingdom</option>
+                <option value="3">united states</option>
+                <option value="4">Dubai</option>
+                <option value="5">russia</option>
+
+            </select>
+        </div>
+        <div>
+            <p style="color: rgb(15, 98, 136); font-size: 30px;" id="demo"></p>
+        </div>
+        <!-- <div><input type="button" style="font-size: 20px; background-color: blanchedalmond ; color: brown;margin:10px ; " onclick="show()" value="submit"></div> -->
+        <div id="lbl" style="font-size: 15px;" >
+            <label style="color: rgb(105, 20, 101); font-size: 25px; margin: auto;" for="India">India</label><br>
+            <label style="color: rgb(105, 20, 101); font-size: 25px;  margin: auto;"  for="United kingdom">United Kingdom</label><br>
+            <label style="color: rgb(105, 20, 101); font-size: 25px;  margin: auto;"  for="united states">United States</label><br>
+            <label style="color: rgb(105, 20, 101); font-size: 25px;  margin: auto;"  for="dubai">Dubai</label><br>
+            <label style="color: rgb(105, 20, 101); font-size: 25px;  margin: auto;"  for="russia">Russia</label><br>
+        </div>
+    </div>
+    </main>
+    <script>
+        function show() {
+            var x=document.getElementById("country");
+           console.log(x.options[x.value].text);
+            if(x.value==0)
+            {
+                document.getElementById("lbl").style.display="block";
+                document.getElementById("demo").style.display="none";
+
+            }
+            else{
+                document.getElementById("demo").style.display= "block";
+                document.getElementById("demo").innerHTML=x.options[x.value].text;
+                document.getElementById("lbl").style.display="none";
+        //   document.getElementById("lbl").style.visibility = "hidden";
+        //     let val = document.getElementById("country").value;
+        //     document.getElementById("demo").innerHTML = "Your Selected Country :" + val;
+            }
+        }
+    </script>
+</body>
+
+</html>

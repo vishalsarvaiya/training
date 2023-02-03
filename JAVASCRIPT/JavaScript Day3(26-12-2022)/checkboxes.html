@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <div id="boxes" style="margin-top: 5%; margin-left: 20%;">
+        <label for="heading" style="font-size: 40px; font-weight: 200;">SELECT YOUR FAVOURITE COUNTRY</label><br>
+        <div style="margin-top: 35px; font-size: 28px; margin-left: 25%;">
+            <input type="checkbox" id="usa" name="country" value="usa" onclick="check()">
+            <label for="usa"> USA</label><br>
+
+            <input type="checkbox" id="uk" name="country" value="uk" onclick="check()">
+            <label for="uk"> UK</label><br>
+
+            <input type="checkbox" id="india" name="country" value="india" onclick="check()">
+            <label for="india">INDIA</label><br>
+
+            <input type="checkbox" id="asia pacific" name="country" value="asia pacific" onclick="check()">
+            <label for="asia pacific"> ASIA PACIFIC</label><br>
+
+            <input type="checkbox" id="australia" name="country" value="australia" onclick="check()">
+            <label for="australia"> AUSTRALIA</label><br>
+
+            <input type="checkbox" id="middle east" name="country" value="middle east" onclick="check()">
+            <label for="middle east"> MiDDLE EAST</label><br>
+
+            <input type="checkbox" id="all" name="cou" value="check all" onclick="allcheck()">
+            <label for="all">CHECK ALL</label><br>
+        </div>
+    </div>
+
+    <script>
+
+        function allcheck() {
+
+            console.log("click");
+
+            var x = document.getElementsByName('country');
+
+            for (let i = 0; i < x.length; i++) {
+
+                x[i].checked = true;
+
+            }
+            if (!all.checked) {
+
+                for (let i = 0; i < x.length; i++) {
+
+                    x[i].checked = false;
+
+                }
+
+            }
+
+
+
+        }
+
+        function check() {
+
+            console.log("click2");
+
+            var x = document.getElementsByName('country');
+
+            var all = document.getElementById('all');
+
+            for (let i = 0; i < x.length; i++) {
+
+                if (!x[i].checked) {
+
+                    all.checked = false;
+
+                    break;
+
+                }
+
+                if (x[i].checked) {
+
+                    all.checked = true;
+
+
+
+                }
+
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

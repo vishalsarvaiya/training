@@ -1,0 +1,74 @@
+
+							App.jsx
+import { createContext} from 'react';
+import './App.css'
+//import Stated from './components/statedemo';
+//import propdemo from './components/propdemo'
+//import Con_rend from './components/conditional_rendering';
+//import Listkey from './components/list_keys';
+//import Form from './components/formdemo';
+//import UseeffectDemo from './components/useeffectDemo';
+import Comp1 from './components/Comp1';
+
+const FirstName = createContext();
+const LastName = createContext();
+
+function App() {
+  
+  return (
+          //<propdemo sname='vishal' lname='sarvaiya' />
+          //<Stated />
+        // <Con_rend/>
+        //<Listkey/>
+          //<Form/>
+          //<UseeffectDemo/>
+          <>
+          <FirstName.Provider value={"vishal"}>
+            <LastName.Provider value ={"sarvaiya"}>
+           
+              <Comp1/>
+            </LastName.Provider>
+          
+          </FirstName.Provider>
+          </>
+
+
+  
+  )
+}
+
+export default App;
+export {FirstName,LastName};
+
+
+								com1.jsx
+import React from 'react';
+import Comp2 from './Comp2';
+
+
+const Comp1 = () => {
+  return(
+    <>
+    <Comp2/>
+    </>
+  )
+};
+
+export default Comp1
+
+								com2.jsx
+import React, { useContext } from 'react'
+import {FirstName,LastName} from '../App.jsx'
+
+
+const Comp2 = () => {
+    const name = useContext(FirstName);
+    const lname = useContext(LastName);
+  return (
+    <>
+    <h1> My Name Is {name} {lname}</h1>
+    </>
+  )
+}
+
+export default Comp2

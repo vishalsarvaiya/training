@@ -1,0 +1,41 @@
+							conditional_rendering.jsx
+import React from "react";
+import Stated from "./statedemo";
+//import Propdemo from "./propdemo";
+
+
+let file_name = "propdemo"
+const Con_rend = () =>{
+            if(file_name === "propdemo")
+            {
+                return <Stated/>;
+            }
+            else
+            {
+               return <h1>no</h1>
+            }
+    
+        };
+
+
+export default Con_rend
+
+
+
+							app.jsx
+import './App.css'
+//import Stated from './components/statedemo';
+//import propdemo from './components/propdemo'
+import Con_rend from './components/conditional_rendering';
+
+function App() {
+  return (
+    //<propdemo sname='vishal' lname='sarvaiya' />
+    //<Stated />
+    <Con_rend/>
+
+  
+  )
+}
+
+export default App;

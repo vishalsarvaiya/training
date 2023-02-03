@@ -1,0 +1,157 @@
+							CREATE PROCEDURE
+CREATE PROCEDURE selec
+AS
+begin
+SELECT * FROM vishalstudent;
+end;
+
+EXECUTE selec;
+
+
+************************************************************************************************************************
+
+DELIMITER //
+CREATE PROCEDURE spcust()
+BEGIN
+    select * from Vishalcustomer ;
+END //
+DELIMITER;
+
+call spcust;
+
+************************************************************************************************************************
+
+							ALTER PROCEDURE
+
+alter PROCEDURE sele
+as
+BEGIN
+SELECT * FROM vishalstudent
+END;
+
+
+************************************************************************************************************************
+
+							DROP PROCEDURE
+drop procedure spcust;
+
+************************************************************************************************************************
+
+							PARAMETERISED PROCEDURE
+DELIMITER //
+CREATE PROCEDURE spcar(start_price int,end_price int)
+BEGIN
+    select * from vishalcar where askprice between start_price and end_price;
+END //
+DELIMITER;
+
+call spcar(100,1200000);
+
+************************************************************************************************************************
+
+DELIMITER //
+create PROCEDURE spcarhigh(in low INT, in high int, in mak char(30))
+BEGIN
+    select * from vishalcar where askprice between low and high and make = mak;
+END //
+DELIMITER;
+
+call spcarhigh(100000,13000000,'mahindra');
+************************************************************************************************************************
+							sum of two numbers
+CREATE PROC spSumofnumber
+  @no1 INt,
+  @no2 INt,
+  @result int OUT
+as
+BEGIN
+    set @result= @no1 + @no2;
+END
+
+DECLARE @result int
+exec spSumofnumber 11,6,@result out;
+print @result;
+
+************************************************************************************************************************
+							INSERT PROCEDURE
+DELIMITER //
+create procedure carinsert(recid int, vin int , make char(50), model char(50), year1 int, mileage int, askprice int , invoiceprice int)
+begin
+insert into vishalcar values(recid,vin,make,model,year1,mileage,askprice,invoiceprice);
+end //
+delimiter;
+
+call carinsert(7,1007,'audi','Audi Q7',2023,12,3000000,2500000)
+
+************************************************************************************************************************
+							DELETE PROCEDURE
+DELIMITER //
+create procedure cardelete(drecid int)
+begin
+delete from vishalcar
+where recid = drecid;
+end //
+delimiter;
+
+call cardelete(6);
+
+************************************************************************************************************************
+							UPDATE PROCEDURE
+
+DELIMITER //
+create procedure carupdate()
+begin
+update vishalcar
+set recid = 6
+where recid = 7;
+end //
+delimiter;
+
+call carupdate;
+
+************************************************************************************************************************
+							JOIN PROCEDURE
+delimiter //
+create PROCEDURE spjoin()
+begin
+select os.name,os.designation, os.salary, o.city, o.region
+from Vishalofficestaff as os inner join vishaloffice as o
+on os.recid = o.recid;
+end //
+delimiter;
+
+call spjoin
+
+************************************************************************************************************************
+						JOIN PROCEDURE With PARAMETERS
+delimiter //
+create PROCEDURE spjoinbypost(post char(50),eregion char(10))
+begin
+select os.name,os.designation, os.salary, o.city, o.region
+from Vishalofficestaff as os inner join vishaloffice as o
+on os.recid = o.recid
+where os.designation = post AND o.region = eregion;
+end //
+delimiter;
+
+call spjoinbypost('programmer','east');
+
+************************************************************************************************************************
+						JOIN PROCEDURE With PARAMETERS condition
+
+delimiter //
+create PROCEDURE spjoinbysalary(post char(50), esalary int)
+begin
+select os.name,os.designation, (os.salary+os.overtimesalary) as 'total', o.city, o.region
+from Vishalofficestaff as os inner join vishaloffice as o
+on os.recid = o.recid
+where os.designation = post and (os.salary+os.overtimesalary)>=esalary;
+end //
+delimiter;
+
+call spjoinbysalary('programmer',10000);
+
+drop procedure spjoinbysalary;
+
+
+

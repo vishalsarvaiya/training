@@ -1,0 +1,155 @@
+<html>
+<body>
+
+<h2>Creating an Object from a JSON String</h2>
+
+<p id="demo"></p>
+<p id="d"></p>
+<script>
+
+
+                                  //  JSON string
+// const txt = '{"name":"John", "age":30, "city":"New York"}'
+// const obj = JSON.parse(txt);
+// document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+
+//                                     JSON array
+// const text = '[ "Ford", "BMW", "Audi", "Fiat" ]';
+// const myArr = JSON.parse(text);
+// document.getElementById("demo").innerHTML = myArr[0];
+
+
+                        //JSON date
+// const text = '{"name":"John", "birth":"1986-12-14", "city":"New York"}';
+// const obj = JSON.parse(text);
+// document.getElementById("d").innerHTML=obj.name+"<br>";
+
+// // document.getElementById("demo").innerHTML=obj.birth+"<br>";
+// obj.birth = new Date(obj.birth);
+// document.getElementById("demo").innerHTML = obj.name +"<br>"+ " " + obj.birth; 
+
+
+
+
+//string
+// let a='{"name":"vishal","lname":"sarvaiya"}';
+// let b=JSON.parse(a);
+// document.getElementById("demo").innerHTML=b.name+" "+b.lname;
+
+//array
+// let c='["audi","bmw"]';
+// let d=JSON.parse(c);
+// document.getElementById("demo").innerHTML=d[0];
+
+
+                                //JSON functions
+// const text = '{"name":"John", "age":"function() {return 30;}", "city":"New York"}';
+// const obj = JSON.parse(text);
+// obj.age = eval("(" + obj.age + ")");
+// document.getElementById("demo").innerHTML = obj.name + ", " + obj.age(); 
+
+
+// //stringify() text
+// const obj = {name: "John", age: 30, city: "New York"};
+// const myJSON = JSON.stringify(obj);
+// document.getElementById("demo").innerHTML = myJSON;
+
+
+// //stringify() array
+// const arr = ["John", "Peter", "Sally", "Jane"];
+// const myJSON = JSON.stringify(arr);
+// document.getElementById("demo").innerHTML = myJSON;
+
+
+// // Storing data:
+// const myObj = { name: "John", age: 31, city: "New York" };
+// const myJSON = JSON.stringify(myObj);
+// localStorage.setItem("testJSON", myJSON);
+
+// // Retrieving data:
+// let text = localStorage.getItem("testJSON");
+// let obj = JSON.parse(text);
+// document.getElementById("demo").innerHTML = obj.name+" "+obj.age+" "+obj.city;
+
+// //sending date
+// const obj = {name: "John", today: new Date(), city: "New York"};
+// const myJSON = JSON.stringify(obj);
+// document.getElementById("demo").innerHTML = myJSON;
+
+// //displaying date
+// const d=JSON.parse(myJSON);
+// const dt=new Date(d.today);
+// document.getElementById("d").innerHTML=dt;
+
+
+// //sending functions
+// const obj = {name: "John", age: function () {return 30;}, city: "New York"};
+// obj.age = obj.age.toString();
+// const myJSON = JSON.stringify(obj);
+// const d=JSON.parse(myJSON);
+// document.getElementById("d").innerHTML=d.age;
+// document.getElementById("demo").innerHTML = myJSON;
+
+// //loop in json
+// const myJSON = '{"name":"John", "age":30, "car":null}';
+// const myObj = JSON.parse(myJSON);
+
+// let text = "";
+// for (let x in myObj) {
+//   text += myObj[x] + ",  ";
+// }
+// document.getElementById("demo").innerHTML = text;
+
+//accessing array values
+// const myJSON = '{"name":"John", "age":30, "cars":["Ford", "BMW", "Fiat"]}';
+// const myObj = JSON.parse(myJSON);
+
+// document.getElementById("demo").innerHTML = myObj.cars;
+
+// const myObj = { name: "John", age: 31, city: "New York" };
+// const myJSON = JSON.stringify(myObj);
+// window.location = "receive.html?x=" + myJSON;
+
+
+
+// const myObj = { name: "John", age: 31, city: "New York" };
+// const myJSON = JSON.stringify(myObj);
+// window.location = "receive.html?x=" + myJSON;
+
+
+
+
+
+// function change_myselect(sel) {
+//   const dbParam = JSON.stringify({table:sel,limit:20});
+//   const xmlhttp = new XMLHttpRequest();
+//   xmlhttp.onload = function() {
+//     myObj = JSON.parse(this.responseText);
+//     text = "<table border='1'>"
+//     for (x in myObj) {
+//       text += "<tr><td>" + myObj[x].name + "</td></tr>";
+//     }
+//     text += "</table>"    
+//     document.getElementById("demo").innerHTML = text;
+//   }
+//   xmlhttp.open("POST", "json_demo_html_table.php", true);
+//   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//   xmlhttp.send("x=" + dbParam);
+// }
+
+
+
+
+//regular expression
+// let str = "+7(903)-123-45-67";
+
+// let regexp = /123/g;
+
+// if( str.match(regexp))
+// {
+//     document.getElementById("demo").innerHTML="oj";
+// } // 7
+</script>
+
+</body>
+</html>

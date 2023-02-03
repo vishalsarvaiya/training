@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .la
+            {
+                display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: 30px;
+
+            }
+
+            .btn
+            {
+                
+  position: absolute;
+  margin-top: 20px;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+            }
+        </style>
+    </head>
+<body>
+
+<p class="la"> Submitting form using "button" type instead of "submit" input type.</p>
+
+<form id="myForm">
+<label class="la"> Click the button to Submit</label>
+ <div class="btn"> <input type="button" style= "text-align: center;" class="la" onclick="myFunction()" value="Submit form"> </div>
+</form>
+
+<script>
+function myFunction() {
+  document.getElementById("myForm").submit();
+  alert("form submitted");
+}
+</script>
+
+</body>
+</html>
