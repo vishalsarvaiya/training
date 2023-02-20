@@ -14,7 +14,7 @@
 
         <div id="visible">
             
-
+            
 
 
         </div>
@@ -35,19 +35,23 @@
 
             btn.innerText = "X";
 
+            var space=document.createElement('br');
+
+
 
 
             document.getElementById('visible').appendChild(x);
          
             document.getElementById('visible').appendChild(btn);
+            document.getElementById('visible').appendChild(space);
        
             btn.addEventListener("click", fun)
 
             function fun() {
 
                 x.remove();
-
                 btn.remove();
+                space.remove();
 
             }
 

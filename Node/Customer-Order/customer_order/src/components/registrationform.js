@@ -121,7 +121,7 @@ const Registrationform = () => {
                     <label for="exampleInputPassword1" className="form-label">DOB</label>
                     <input type='date' className="form-control" value = {dob} name = 'dob' onChange ={(e) => {setDob(e.target.value) }} />
                 </div>
-                <input type="submit" value="submit"/>
+                <input type="submit" className="btn btn-primary" value="submit"/>
                 {/* <Link to={"/register"} type="submit" className="btn btn-primary"  >Register</Link> */}
                 <Link to={"/"} type="submit" className="btn btn-primary ms-2"  >Back</Link>
             </form>

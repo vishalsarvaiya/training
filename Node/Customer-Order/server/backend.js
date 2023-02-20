@@ -22,12 +22,12 @@ con.connect(function (err) {
 }
 );
 
-app.get('/showdata', async (req, res) => {
+app.get('/products', async (req, res) => {
     console.log(req.query.token);
     try {
         const email = await resolveToken(req.query.token);
         console.log(email);
-        const sql = `select * from vishal_customer where email="${email}"`
+        const sql = `select * from vishal_product`
         con.query(sql, (err, result) => {
             if (err) {
                 throw err;
@@ -39,7 +39,6 @@ app.get('/showdata', async (req, res) => {
     } catch (err) {
         res.status(400).send(err);
     }
-
 })
 
 app.post('/registration', (req, res) => {
@@ -51,21 +50,78 @@ app.post('/registration', (req, res) => {
     const mobilenumber = req.body.mobilenumber;
     const gender = req.body.gender;
     const address = req.body.address;
-    const dob = req.body.dob;
+    const dob1 = (req.body.dob).slice(0,10);
+    const dob = dob1;
 
     const token = jwt.sign(email, "vishal");
 
     const sql = `insert into vishal_customer(firstname,lastname,email,password,confirmpassword,mobilenumber,address,gender,dob,accesstoken) 
-    values("${firstname}","${lastname}", "${email}","${password}" ,"${confirmpassword}", "${mobilenumber}", "${gender}", "${address}" , "${dob}" ,"${token}")`
+    values("${firstname}","${lastname}", "${email}","${password}" ,"${confirmpassword}", "${mobilenumber}", "${address}", "${gender}" , "${dob}" ,"${token}")`
 
     con.query(sql, function (err, result) {
-        if (err) res.status(400).send("loda error aavi");
+        if (err) res.status(400).send("error ");
         console.log(result);
         //resole(result);
         console.log("inserted");
         res.status(200).send("sucessfully inserted")
     });
 })
+
+app.post('/update', (req, res) => {
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    const email = req.body.email;
+    const password = req.body.password;
+    const confirmpassword = req.body.confirmpassword;
+    const mobilenumber = req.body.mobilenumber;
+    const gender = req.body.gender;
+    const address = req.body.address;
+    const dob1 = (req.body.dob).slice(0,10);
+    const dob = dob1;
+
+    const token = jwt.sign(email, "vishal");
+
+    const sql = `update vishal_customer set firstname = "${firstname}",lastname = "${lastname}",gender = "${gender}",
+    mobilenumber = "${mobilenumber}", address = "${address}",  dob = "${dob}" where email = "${email}"`;
+    
+    // (firstname,lastname,email,password,confirmpassword,mobilenumber,address,gender,dob,accesstoken) 
+    // values("${firstname}","${lastname}", "${email}","${password}" ,"${confirmpassword}", "${mobilenumber}", "${address}", "${gender}" , "${dob}" ,"${token}")`
+
+    con.query(sql, function (err, result) {
+        if (err) res.status(400).send("error ");
+        console.log(result);
+        //resole(result);
+        console.log("updated");
+        res.status(200).send("sucessfully updated")
+    });
+})
+
+
+app.get("/profile", async(req,res) => {
+    const email = await resolveToken(req.query.token);
+    const token = req.query.token;
+    console.log(req.query)
+    // res.status(200).send("avinash")
+    if(token) {
+        con.query(`select * from vishal_customer where email = "${email}"`,function(error,result) {
+            if(error){
+                console.log(error)
+                return res.status(400).send(error);
+            }
+                else{
+                    if(token ==  result[0].accesstoken){
+                        console.log("from server",result[0].accesstoken);
+                        res.status(200).send(result[0]);
+                        console.log("token matched")
+                    }else{
+                        res.status(401).send("unauthorized user");
+                        console.log("unauthorized user");
+                    }
+                }
+        })
+    }
+})
+
 
 app.post('/login', (request, response) => {
 
@@ -86,12 +142,13 @@ app.post('/login', (request, response) => {
                   email: email
                 }
                 const token = jwt.sign(data, jwtSecretKey);
-                const update_query = `update vishal_customer set token = "${token}" where email = "${email}"`
+                const update_query = `update vishal_customer set accesstoken = "${token}" where email = "${email}"`
                 con.query(update_query, function (error, result) {
                     if (error) {
                         return response.status(400).send(result);
                     }
                     response.send({ result, token });
+                    console.log("login success")
                 })
             }
         });
@@ -99,6 +156,8 @@ app.post('/login', (request, response) => {
         response.status(400).send('Please enter Username and Password!');
     }
 })
+
+
 const resolveToken = (token) => {
     console.log("token : ", token);
     return new Promise((resolve, reject) => {
@@ -109,10 +168,6 @@ const resolveToken = (token) => {
         });
     });
 };
-
-// app.get('/home', function (request, response) {
-//     response.send("ok logged in");
-// });
 
 
 app.listen(8000, () => {

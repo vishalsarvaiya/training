@@ -35,7 +35,8 @@ const Loginform = () => {
             .then((res) => {
                 const token = res.data.token;
                 console.log(token);
-                navigate("/");
+                navigate("/products");
+                console.log("login success")
                 localStorage.setItem("token", token);
             })
             .catch((err) => {
@@ -60,8 +61,9 @@ const Loginform = () => {
                     onChange={(e) => { setPassword(e.target.value) }} />
                 </div>
                 
-                <button type="submit" class="btn btn-primary" >Login</button>
-                <Link to={"/register"} type="submit" class="btn btn-dark ms-2"  >Register</Link>
+           
+                <input type="submit" class="btn btn-primary" value="Login"/>
+                <input type="button" onClick={() => { navigate("/register")}} value="Register" class="btn btn-dark ms-2"  />
             </form>
             </div>
 

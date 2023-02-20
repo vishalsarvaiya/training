@@ -6,7 +6,6 @@ app.use(cors());
 
 const jwt = require('jsonwebtoken');
 
-
 app.use(express.json());
 
 var mysql = require('mysql');

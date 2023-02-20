@@ -16,10 +16,11 @@ const Homepage = () => {
         
     }, [data])
     
-    const showdata = async () => {
+    const products = async () => {
         const token = localStorage.getItem("token")
-        const res = await axios.get("http://localhost:8000/showdata", { params: { token } })
+        const res = await axios.get("http://localhost:8000/products", { params: { token } })
             .then((res) => {
+                console.log(res);
                 setData(res.data);
             })
             .catch((err) => {
@@ -31,7 +32,7 @@ const Homepage = () => {
     return (
         <>
         
-            <Navbar showDataBtn={showdata}/>
+            <Navbar showDataBtn={products}/>
             {data.map((data, index) => {
                 return (
                     <table className="table">
